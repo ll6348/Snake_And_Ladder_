@@ -26,14 +26,21 @@ class SnakeLadderGame:
             self.player_position += dice_value
             print(f"Ladder! Moving ahead by {dice_value} steps.")
         elif event == "Snake":
-            self.player_position = max(0, self.player_position - dice_value)  # Prevent negative position
-            print(f"Snake! Moving back by {dice_value} steps.")
+            self.player_position -= dice_value  # Move back
+            if self.player_position < 0:  # Restart from 0 if below 0
+                self.player_position = 0
+                print("Player fell below 0! Restarting from position 0.")
+            else:
+                print(f"Snake! Moving back by {dice_value} steps.")
 
         print(f"Player is now at position {self.player_position}")
+
+    def play_game(self):
+        while self.player_position < self.board_size:  # Repeat until player reaches 100
+            self.move_player()
+        print("Congratulations! You reached position 100 and won the game!")
 
 # Start the game
 game = SnakeLadderGame()
 game.start_game()
-
-# Simulate one turn where the player rolls the dice and moves
-game.move_player()
+game.play_game()  # Keep playing until the player reaches 100
