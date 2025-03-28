@@ -9,8 +9,7 @@ class SnakeLadderGame:
     def start_game(self):
         print("Game initialized. Player starts at position 0.")
 
-    def roll_dice(self):  
-        input("Press Enter to roll the dice.")  # User must press Enter before rolling
+    def roll_dice(self):
         dice_value = random.randint(1, 6)  # Generate a number between 1 and 6
         print(f"Player rolled a {dice_value}")
         return dice_value
