@@ -10,7 +10,6 @@ class SnakeLadderGame:
     def start_game(self):
         print("Game initialized. Both players start at position 0.\n")
 
-
     def roll_dice(self):
         dice_value = random.randint(1, 6)  # Generate a number between 1 and 6
         self.dice_roll_count[player] += 1  # Increment dice roll count for the player
