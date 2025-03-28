@@ -23,8 +23,12 @@ class SnakeLadderGame:
         if event == "No Play":
             print("No Play! Player stays at the same position.")
         elif event == "Ladder":
-            self.player_position += dice_value
-            print(f"Ladder! Moving ahead by {dice_value} steps.")
+            new_position = self.player_position + dice_value
+            if new_position <= self.board_size:  # Move only if within bounds
+                self.player_position = new_position
+                print(f"Ladder! Moving ahead by {dice_value} steps.")
+            else:
+                print(f"Roll exceeds 100! Player stays at {self.player_position}.")
         elif event == "Snake":
             self.player_position -= dice_value  # Move back
             if self.player_position < 0:  # Restart from 0 if below 0
