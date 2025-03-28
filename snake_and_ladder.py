@@ -11,6 +11,7 @@ class SnakeLadderGame:
 
     def roll_dice(self):
         dice_value = random.randint(1, 6)  # Generate a number between 1 and 6
+        self.dice_roll_count[player] += 1  # Increment dice roll count for the player
         print(f"Player rolled a {dice_value}")
         return dice_value
 
